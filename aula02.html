@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+          <meta charset="utf-8">
+          <title>Lógica com JavaScript - Funções e Paramentros</title>
+    </head>
+    <style>
+          #box1,#box2{
+                width:300px;
+                border:1px solid black;
+                padding: 10px;
+                margin-bottom: 10px;
+          }
+            .alerta{
+                  background-color: red;
+                  color: white;
+                }
+            .bemVindo{
+                  background-color:green;
+                  color: white;
+                }
+    </style>
+      <body>
+            <div>
+                  <a href="aula01.html">AULA 01</a> 
+                  <a href="aula02.html">AULA 02</a> 
+                  <a href="aula03.html">AULA 03</a> 
+            </div>
+
+            <p>Aula de Lógica com JavaScript</p>
+
+            <div id="box1"></div>
+            <div id="box2"></div>
+            <button id="btConfirma">CONFIRMAR</button>
+
+                  <script>
+                        let estoque,vendas,novoEstoque;
+                        estoque=200;
+                        novoEstoque=250;
+                        function soma(){
+                              novoEstoque+=100;
+                        }
+                        console.log(novoEstoque);//250
+                        soma();
+                        console.log(novoEstoque);//350
+                        ///////////////////
+                        ///FUNÇÃO DE RETORNO
+                        function comissao(){
+                              var tx=1.2;
+                              return tx;
+                        }
+                        console.log(comissao());
+                        /////////////////////
+                        ///FUNÇÃO COM PARAMETROS
+                        function divisao(a,b){
+                              return a/b;
+                        }
+                        console.log(divisao(10,5))
+                        //////////////////////
+                        ///
+                        let box1=document.querySelector("#box1");
+                        box1.innerHTML=divisao(50,4);
+                        //////////////////////
+                        ///CONTROLE DE EVENTO DE CLICK
+                        let btConfirma=document.querySelector("#btConfirma");
+                        btConfirma.onclick=function(){
+
+                              box1.innerHTML=divisao(184,3);
+                        }
+                        //////////////////////
+                        let funcionarios,sorteio,box2;
+                        sorteio=parseInt(Math.random()*5);
+                        funcionarios=["Ernesto","Gabriel","Joaquim","Marcelo","Luciana"];
+                        box2=document.querySelector("#box2");
+                        box2.innerHTML=funcionarios[sorteio];
+
+                        console.log(parseInt(Math.random()*5)+1);
+
+                  </script>
+    
+      </body>
+</html>

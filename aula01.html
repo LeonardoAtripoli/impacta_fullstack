@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+          <meta charset="utf-8">
+          <title>Lógica com JavaScript</title>
+    </head>
+    <style>
+          #box1,#box2{
+                width:300px;
+                border:1px solid black;
+                padding: 10px;
+                margin-bottom: 10px;
+          }
+            .alerta{
+                  background-color: red;
+                  color: white;
+                }
+            .bemVindo{
+                  background-color:green;
+                  color: white;
+                }
+    </style>
+    <body>
+<div>
+      <a href="aula01.html">AULA 01</a> 
+      <a href="aula02.html">AULA 02</a> 
+      <a href="aula03.html">AULA 03</a> 
+
+
+</div>
+      <p>Aula de Lógica com JavaScript</p>
+      <div id="box1"></div>
+      <div id="box2"></div>
+
+            <script>
+                //Declarando variáveis
+                  var nome,estoque,pacote,inicio,passeios,mensagem;
+                  nome='Leonardo Atripoli';
+                  estoque=140;
+                  pacote="20";
+                  inicio=false;
+                  passeios=new Array("Curitiba, Rio de Janeiro");
+                  console.log(nome);
+                  console.log(typeof(nome));
+                  console.log(estoque);
+                  console.log(typeof(estoque))
+                  console.log(estoque+"20");
+                  console.log(estoque+parseInt("20"));
+                  console.log(estoque+parseInt(pacote));
+                  console.log(estoque+parseInt("20"));
+                  console.log("A variável início é do tipo: "+ typeof(inicio));
+                  console.log("A variável passeio é do tipo: "+ typeof(passeios));
+                  console.log(passeios[0]);
+                  console.log(passeios[1]);
+                  mensagem="eu fui até : "+ passeios[0] + passeios[2];
+                  console.log(mensagem);
+
+                  ////////// Acessando elemento HMTL /////////
+                  let box1=document.querySelector("#box1");
+                  let salario=10000;
+                  let aumento=1.1;
+                  console.log(box1);
+                  let funcionario="Carlos";
+                  let novoSalario=salario * aumento;
+                  box1.innerHTML="<p>" + funcionario + " Recebe salário de : R$ " + salario + ",00 mensais</p>";
+                  box1.innerHTML+="<p>Ele teve um aumento e agora receberá R$ " + novoSalario + ",00</p>"
+
+                  //// Tomadas de decisões ////
+                  let box2=document.querySelector("#box2");
+                  let nivel;
+                  nivel=1;
+                        if (nivel == 1){
+                              alert("Administrador")
+                        } else if(nivel == 2){
+                              alert("Editor")
+                        }else if(nivel == 3){
+                              alert("Usuário")
+                        }else {
+                              box2.innerHTML="<p>Ops!! cadastre-se para acessar ao sistema</p>";
+                        }
+                        //ternário
+                        nivel >= 4 ? alert("Sem cadastro") : alert("Seja Bem Vindo");
+                        //Switch CASE
+                        switch(nivel){
+                              case 1 : 
+                              box2.className="bemVindo";
+                              box2.innerHTML="<p>Olá Administrador</p>";
+                              break;
+                              case 2 : box2.innerHTML="<p>Olá Editor</p>";
+                              break;
+                              case 3 : box2.innerHTML="<p>Olá Usuário</p>";
+                              break;
+                              default : 
+                              box2.className="alerta";
+                              box2.innerHTML="<p>Não deixe de realizar seu cadastro!!</p>";
+                              break;
+
+                        }
+
+            </script>
+    </body>
+</html>
