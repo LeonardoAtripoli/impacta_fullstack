@@ -7,6 +7,7 @@
     </head>
     <style>
           #box1,#box2{
+          #box1,#box2,#box3{
                 width:300px;
                 border:1px solid black;
                 padding: 10px;
@@ -32,6 +33,14 @@
 
             <div id="box1"></div>
             <div id="box2"></div>
+            <div id="box3">
+                  <ul></ul>
+            </div>
+
+            <div id="box4">
+                  <ul></ul>
+            </div>
+
             <button id="btConfirma">CONFIRMAR</button>
 
                   <script>
@@ -67,15 +76,66 @@
                         btConfirma.onclick=function(){
 
                               box1.innerHTML=divisao(184,3);
+                              sorteiaPessoa();
+                              
+                        }
+                        //////////////////////
+                        function sorteiaPessoa(){
+                        sorteio=parseInt(Math.random()*5);
+                        box2.innerHTML=funcionarios[sorteio];
                         }
                         //////////////////////
                         let funcionarios,sorteio,box2;
-                        sorteio=parseInt(Math.random()*5);
                         funcionarios=["Ernesto","Gabriel","Joaquim","Marcelo","Luciana"];
                         box2=document.querySelector("#box2");
-                        box2.innerHTML=funcionarios[sorteio];
+                        ///Executa imediato
+                        sorteiaPessoa();
 
                         console.log(parseInt(Math.random()*5)+1);
+
+                        //////////////////
+                        ///WHILE
+                        let n=-1
+                        while(n<funcionarios.length-1){
+                              n++;
+                              console.log(funcionarios[n]);
+                              box2.innerHTML+="<p>"+funcionarios[n]+"</p>";
+                        }
+
+                        /////////////////
+                        ////FOR
+                        let passeios=[
+                                          ["França","Arco do Triunfo"],
+                                          ["Escócia","Lago Ness"],
+                                          ["Inglaterra","Castelos"],
+                                          ["Jabaquara","Metrô"],
+                                          ["Barretos","Festa do Peão"],
+                                          ["Praia Grande","Mar Sujo"]];
+                        
+                        let lista=document.querySelector("#box3 ul");
+                        let mensagem="";
+                        for(var i=0;i<passeios.length;i++){
+                              console.log(passeios[i][1]);
+                              mensagem+="<li><b>" + passeios[i][0]+ "</b> tem " + passeios[i][1]+ "</li>";
+                              lista.innerHTML=mensagem;
+
+                        }
+                        //////////////////
+                        ///MOD
+
+                        let numeros=[12,34,55,49,121,156,7,329];
+                        let listaResultado=document.querySelector("#box4 ul");
+                        resultado="";
+                        for(var z=0;z<numeros.length;z++){
+                              console.log(numeros[z]);
+                              if (numeros[z] % 2 == 0) {
+                                    resultado+="<li><b>" + numeros[z] + "</b> é " + "par" + "</li>";
+                              }
+                              else 
+                                    resultado+="<li><b>" + numeros[z] + "</b> é " + "impar" + "</li>";      
+                              }
+                              console.log(resultado);
+                              listaResultado.innerHTML=resultado;
 
                   </script>
     
