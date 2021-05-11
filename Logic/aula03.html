@@ -1,0 +1,118 @@
+AULA 03 - CORRIGIDO COM WHILE PARA PESQUISA DE OCORRÊNCIAS
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Lógica com Javascript</title>
+        <meta charset="UTF-8" >
+    </head>
+    <style>
+        #box1,#box2,#box3,#box4{
+            width:300px;
+            border:1px solid black;
+            padding:10px;
+            margin-bottom:10px;    
+        }
+        .alerta{
+            color:red;
+        }
+        .sucesso{
+            color:green;
+        }
+    </style>
+    <body>
+    <div>
+        <a href="aula01.html">AULA 01</a> | 
+        <a href="aula02.html">AULA 02</a> | 
+        <a href="aula03.html">AULA 03</a> 
+    </div>
+    <p>Aulas de Lógica com Javascript - ARRAYS e STRINGS</p>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3">
+        <ul></ul>
+    </div>
+    <div id="box4">
+        <ul></ul>
+    </div>
+
+    <button id="btConfirma">CONFIRMAR</button>
+    
+    <script>
+        //////////////////
+        let btConfirma=document.querySelector("#btConfirma");
+        ////////////////////
+        let funcionarios,box2;
+        //                0         1        2        3         4
+        funcionarios=["Ernesto","Joaquim","Renata","Luciana","Gabriel"];
+        box2=document.querySelector("#box2");
+        //
+        let passeios=[
+            ["França","Arco do Triunfo"],//0
+                ["Escócia","Lago Ness"],//1
+                    ["Inglaterra","Castelos"],//2
+                        ["Jabaquara","Aglomeração"],//3
+                            ["Barretos","Festa do Peão"],//4
+                                ["Praia Grande","Arrastão"]];//5
+        
+        let numeros=[12,34,55,49,121,4,156,7,329];
+        //FOR EACH
+        funcionarios.forEach(function(val,index){
+            console.log(index);
+            box2.innerHTML+="<p>"+val+"</p>";
+            //console.log(this);
+        });
+        document.querySelectorAll("#box2 p").forEach(function(val,index){
+                console.log(val);
+        index == 2 ? document.querySelectorAll("#box2 p")[2].style.fontWeight="bold" : null;
+        });
+        funcionarios.push("Adriana");//adiciona no final do array
+        console.log(funcionarios);
+        numeros.pop();//remove o último item do array
+        console.log(numeros);
+        funcionarios.shift();//remove o primeiro item do array
+        console.log(funcionarios);
+        funcionarios.unshift("Adamastor");//adiciona no início do array
+        console.log(funcionarios);
+        //splice(posicao inicial,quantidade de itens)
+        funcionarios.splice(2,2);
+        console.log(funcionarios);
+        //retorna numeros maiores que 5 do array numeros
+        var filtro = numeros.filter(function(val){
+                return val >5;
+        }); 
+         console.log(filtro);
+         let cores="amarelo,marrom,azul,rosa,verde,laranja";
+         console.log(typeof(cores));//string
+         cores=cores.split(",");//converte para array
+         //cores=["amarelo,marrom,azul,rosa,verde,laranja"];
+         console.log(typeof(cores));
+         console.log(cores.length);//6
+
+        //STRINGS
+        let tema="Nostalgia";
+        console.log(tema.slice(0,4));
+        console.log(tema.slice(4,9));
+        console.log(tema.substr(4,9));
+        //
+        let msg="kkk";
+        console.log(msg.repeat(3));
+        //
+        let email="algumemail@gmail.com";
+        console.log(email.indexOf("@"));
+
+        function pesquisa(indice,texto){
+            var resultado=0;
+            var q=texto.indexOf(indice);
+   
+             while(q!=-1){
+                 texto=texto.slice(q+indice.length);
+                 resultado++;
+                 q=texto.indexOf(indice);
+            }
+            return resultado;       
+        }
+              console.log(pesquisa(".","meuemail.blog@gmail.com"));  
+        </script>
+    </body>
+</html>

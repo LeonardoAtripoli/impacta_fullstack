@@ -1,0 +1,147 @@
+AULA 02
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Lógica com Javascript</title>
+        <meta charset="UTF-8" >
+    </head>
+    <style>
+        #box1,#box2,#box3,#box4{
+            width:300px;
+            border:1px solid black;
+            padding:10px;
+            margin-bottom:10px;    
+        }
+        .alerta{
+            color:red;
+        }
+        .sucesso{
+            color:green;
+        }
+    </style>
+    <body>
+    <div>
+        <a href="aula01.html">AULA 01</a> | 
+        <a href="aula02.html">AULA 02</a> | 
+        <a href="aula03.html">AULA 03</a> 
+    </div>
+    <p>Aulas de Lógica com Javascript - FUNÇÕES E PARÂMETROS</p>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3">
+        <ul></ul>
+    </div>
+    <div id="box4">
+        <ul></ul>
+    </div>
+
+    <button id="btConfirma">CONFIRMAR</button>
+    
+    <script>
+        let estoque,vendas,novoEstoque;
+        estoque=200;
+        novoEstoque=250;
+        //FUNÇÃO////////////
+        function soma(){
+           novoEstoque+=100;
+        }
+        console.log(novoEstoque);//250
+        soma();
+        soma();
+        console.log(novoEstoque);//450
+        ///////////////////////////
+        //FUNÇÃO DE RETORNO
+        function comissao(){
+            var tx=1.2;
+            return tx;
+        }
+        console.log(comissao());
+        ////////////////
+        //FUNÇÃO COM PARÂMETROS
+        function divisao(a,b){
+            return a/b;
+        }
+        console.log(divisao(10,5));
+        ///////////////
+        let box1=document.querySelector("#box1");
+        box1.innerHTML=divisao(50,4);
+        //////////////////
+        //CONTROLE DE EVENTO CLICK
+        let btConfirma=document.querySelector("#btConfirma");
+
+        btConfirma.onclick=function(){
+            box1.innerHTML=divisao(184,3);
+            sorteiaPessoa();
+        }
+        function sorteiaPessoa(){
+            sorteio=parseInt(Math.random()*5);
+            box2.innerHTML=funcionarios[sorteio];
+        }
+        ////////////////////
+        let funcionarios,sorteio,box2;
+        //                0         1        2        3         4
+        funcionarios=["Ernesto","Joaquim","Renata","Luciana","Gabriel"];
+        box2=document.querySelector("#box2");
+       
+        //Executa imediatamente
+        sorteiaPessoa();
+        // (0,1,2,3,4)
+        console.log(parseInt(Math.random()*5)+1);
+        
+        /////////////
+        //WHILE/////////////
+        ///funcionarios.length-1 = 4
+        let n=-1;
+        console.log(funcionarios.length);
+        while(n<funcionarios.length-1){
+            n++;
+            console.log(funcionarios[n]);
+            box2.innerHTML+="<p>"+funcionarios[n]+"</p>";
+        }
+        //1ª = true = n++ = n=0;
+        //2ª = true = n++ = n=1;
+        //3ª = true = n++ = n=2;
+        //3ª = true = n++ = n=3;
+        //3ª = true = n++ = n=4;
+        //4ª = false
+
+        ///FOR
+        let passeios=[
+            ["França","Arco do Triunfo"],//0
+                ["Escócia","Lago Ness"],//1
+                    ["Inglaterra","Castelos"],//2
+                        ["Jabaquara","Acesso ao metro"],//3
+                            ["Barretos","Festa do Peão"],//4
+                                ["Praia Grande","Praias e sol"]];//5
+        let lista=document.querySelector("#box3 ul");
+        let mensagem="";
+        for(var i=0;i<passeios.length;i++){
+            console.log(passeios[i][1]);
+            mensagem+="<li><b>"+passeios[i][0]+ "</b> tem " + passeios[i][1]+"</li>";
+            lista.innerHTML=mensagem;
+        }
+        /////
+        console.log(15 % 4);
+        let numeros=[12,34,55,49,121,4,156,7,329];  
+        let parImpar="";
+        let box4=document.querySelector("#box4 ul");
+        for(var i=0;i<numeros.length;i++){
+            
+            if(numeros[i] % 2 == 0){ 
+                parImpar = numeros[i] + " é PAR";
+                // console.log(numeros[i] + " - PAR");
+            }else{
+                parImpar = numeros[i] + " é ÍMPAR";
+                // console.log(numeros[i]+ "- ÍMPAR");
+            }
+            box4.innerHTML += "<li>"+parImpar+"</li>";//adiciona o tag <li> ao box4
+            var item=document.querySelectorAll("#box4 ul li")[i];//acesso ao <li> da vez
+            //Ternário de verificação para adicionar a classe
+            numeros[i] % 2 == 0 ? item.className="sucesso" : item.className="alerta";
+        }
+
+        console.log(document.querySelectorAll("#box4 ul li")[0].innerHTML);
+    </script>
+    </body>
+</html>
