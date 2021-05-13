@@ -1,0 +1,121 @@
+/*CSS Control Pages*/
+/*Reset*/
+body,body *{
+    margin:0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/*Classes */
+.conteudo{
+    width: 70%;
+    margin: 10px auto;
+}
+.destaqueMenu{
+    color: yellow;
+    font-weight: 700;
+    cursor: default;
+}
+.destaqueMenu:hover{
+    text-decoration:none;
+}
+.w25{
+    width: 25%;
+}
+.w50{
+    width: 50%;
+}
+.w75{
+    width: 75%;
+}
+.w100{
+    width: 100%;
+}
+.cantoRedondo{
+    border-radius: 10px;
+}
+/*Tags e Composições*/
+ol,ul{
+    /*top right botton left*/
+    padding: 0 0 0 30px;
+}
+header,footer .ajuste{
+    width: 100%;
+    height: 15vh;
+    background-color: black;
+    color:darkgray;
+}
+header{
+    height: 30vh;
+}
+footer{
+    height: 30vh;
+}
+footer p{
+    padding: 5% 0 0 10%;
+} 
+h1,h2,h3{
+    margin: 10px;
+}
+h1{
+    letter-spacing: 0.2em;
+    margin: 0 0 50px 0;
+    
+}
+h3{
+    text-transform: uppercase;
+}
+h3:before{
+    content: "_";
+}
+h3:after{
+    content: "_$";
+}
+p{
+    line-height: 1.4em;
+}
+p:first-letter{
+    font-size: 30px;
+    font-weight: 700;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-right: 5px;
+}
+header p{
+    text-align:center;
+    padding: 10px 0 0 0;
+}
+header img{
+    width: 25%;
+    filter:invert(1);
+    display: block;
+    margin: 0 auto;
+}
+header a{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 120%;
+    margin: 0 0 0 5%;
+}   
+nav{
+    background-color: black;
+    text-align:center ;
+}
+
+nav ul{  
+    list-style: none;
+    background-color: black;
+    
+}
+nav ul li{  
+    display: inline-block;
+    color: white;
+    margin:0 1% 0 0;
+    padding: 0.5%;   
+}
+nav ul li a{
+    color: white;
+    text-decoration:none;
+}
+nav ul li a:hover{
+    color:yellow; 
+    text-decoration:underline;
+}
